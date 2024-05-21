@@ -1,38 +1,34 @@
-// Base constructor function
-function Shape(color) {
-  this.color = color;
+// Parent class
+class Shape {
+  constructor(color) {
+    this.color = color;
+  }
+
+  createShape() {
+    const div = document.createElement("div");
+    div.className = "shape";
+    div.style.backgroundColor = this.color;
+    div.style.width = "100px";
+    div.style.height = "50px";
+    return div;
+  }
 }
 
-// Method to create a shape
-Shape.prototype.createShape = function () {
-  const div = document.createElement("div");
-  div.className = "shape";
-  div.style.backgroundColor = this.color;
-  div.style.width = "100px";
-  div.style.height = "50px";
-  return div;
-};
+// Child class
+class Rectangle extends Shape {
+  constructor(color, width, height) {
+    super(color); // Call the parent constructor
+    this.width = width;
+    this.height = height;
+  }
 
-// Inherited constructor function
-function Rectangle(color, width, height) {
-  Shape.call(this, color); // Call the parent constructor
-  this.width = width;
-  this.height = height;
+  createShape() {
+    const div = super.createShape(); // Call the parent method
+    div.style.width = this.width + "px";
+    div.style.height = this.height + "px";
+    return div;
+  }
 }
-
-// Inherit the prototype of Shape
-Rectangle.prototype = Object.create(Shape.prototype);
-Rectangle.prototype.constructor = Rectangle;
-
-console.dir(Rectangle);
-
-// Override the createShape method
-Rectangle.prototype.createShape = function () {
-  const div = Shape.prototype.createShape.call(this);
-  div.style.width = this.width + "px";
-  div.style.height = this.height + "px";
-  return div;
-};
 
 // Create instances and append them to the container
 const container = document.getElementById("container");
