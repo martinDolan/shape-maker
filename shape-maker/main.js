@@ -100,7 +100,7 @@ const shapeConfigurations = [
 ];
 
 // Create instances and append them to the container
-const container = document.getElementById("container");
+const container = document.getElementById("app");
 
 shapeConfigurations.forEach((config) => {
   let shape;

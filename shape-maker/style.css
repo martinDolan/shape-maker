@@ -1,4 +1,6 @@
 .shape {
-  margin: 10px;
   display: inline-block;
+  margin: 10px;
+  text-align: center;
+  line-height: 50px;
 }
