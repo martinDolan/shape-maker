@@ -1,6 +1,5 @@
 import { shapeConfigurations } from "./data/config.js";
 
-import Shape from "./src/Shape.js";
 import Rectangle from "./src/Rectangle.js";
 import Circle from "./src/Circle.js";
 import Triangle from "./src/Triangle.js";
